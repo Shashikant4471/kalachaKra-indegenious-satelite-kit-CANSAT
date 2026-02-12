@@ -1,4 +1,4 @@
-# Kalachara Indigenous Satellite Kit
+# Kalachakra Indigenous Satellite Kit -(CANSAT)
 
 Welcome to the **Kalachara Indigenous Satellite Kit** project! This repository contains the firmware, software, and documentation for a custom CanSat (Satellite in a Can) built for educational and terrain scanning purposes.
 
