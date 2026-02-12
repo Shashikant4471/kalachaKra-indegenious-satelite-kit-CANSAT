@@ -22,7 +22,24 @@ This project aims to build a low-cost, functional CanSat capable of:
   - DHT11/22 (Temperature & Humidity)
   - BMP180/280 (Barometric Pressure/Altitude - *Planned*)
 
-### Power & Actuation
+## Landing & Terrain Scanning Mechanism
+
+The CanSat features an intelligent terrain scanning system to identify safe landing zones.
+
+### How it Works
+1. **Sensor Array**: 5 ultrasonic sensors are arranged in a cross pattern (Center + 4 Corners).
+2. **Scanning**: During descent, the system continuously pulses all sensors to detect the distance to the ground.
+3. **Analysis**:
+   - The onboard processor calculates the **variance** between the 5 sensor readings.
+   - **Flat/Safe**: If all sensors read similar distances (low variance), the ground is flat.
+   - **Uneven/Hazard**: If sensors have largely different readings (high variance), it indicates a slope, rocks, or obstacles.
+4. **Decision**: The system outputs a status (`FLAT-SAFE`, `UNEVEN`, `HAZARD!`) which is transmitted to the ground station.
+
+### Landing Gear
+- **Parachute**: Deployed via a servo mechanism at apogee or predetermined altitude.
+- **Legs**: (Optional) Static landing legs to protect the sensor array upon impact.
+
+## Power & Actuation
 - **Power Source**: Li-ion 18650 Battery
 - **Servo**: SG90 Micro Servo (Parachute release mechanism)
 
